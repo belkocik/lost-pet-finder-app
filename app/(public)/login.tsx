@@ -235,7 +235,7 @@ export default function Login() {
                       returnKeyType="done"
                       autoCapitalize="none"
                       secureTextEntry={true}
-                      keyboardType="visible-password"
+                      keyboardType="default"
                     />
                     {errors.password ? (
                       <HelperText type="error" visible={!!errors.password}>
