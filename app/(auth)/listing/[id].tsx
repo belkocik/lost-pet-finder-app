@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, Platform, StyleSheet, View } from "react-native";
 import React from "react";
 import { useLocalSearchParams } from "expo-router";
 import Animated, {
@@ -33,24 +33,27 @@ const Page = () => {
   const scrollOffset = useScrollViewOffset(scrollRef);
 
   const animatedImageStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          translateY: interpolate(
-            scrollOffset.value,
-            [-IMG_HEIGHT, 0, IMG_HEIGHT],
-            [-IMG_HEIGHT / 2, 0, IMG_HEIGHT * 0.75]
-          ),
-        },
-        {
-          scale: interpolate(
-            scrollOffset.value,
-            [-IMG_HEIGHT, 0, IMG_HEIGHT],
-            [2, 1, 1]
-          ),
-        },
-      ],
-    };
+    if (Platform.OS === "ios") {
+      return {
+        transform: [
+          {
+            translateY: interpolate(
+              scrollOffset.value,
+              [-IMG_HEIGHT, 0, IMG_HEIGHT],
+              [-IMG_HEIGHT / 2, 0, IMG_HEIGHT * 0.75]
+            ),
+          },
+          {
+            scale: interpolate(
+              scrollOffset.value,
+              [-IMG_HEIGHT, 0, IMG_HEIGHT],
+              [2, 1, 1]
+            ),
+          },
+        ],
+      };
+    }
+    return {}; // No animation on Android
   });
 
   const scrollHandler = useAnimatedScrollHandler((event) => {
