@@ -91,6 +91,9 @@ export default function RootLayout() {
                     headerTitle: "",
                     headerBackButtonDisplayMode: "minimal",
                     headerTransparent: true,
+                    headerStyle: {
+                      backgroundColor: "transparent",
+                    },
                   }}
                 />
                 <Stack.Screen
