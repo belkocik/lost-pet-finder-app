@@ -94,6 +94,7 @@ export default function RootLayout() {
                     headerStyle: {
                       backgroundColor: "transparent",
                     },
+                    headerTintColor: "black",
                   }}
                 />
                 <Stack.Screen

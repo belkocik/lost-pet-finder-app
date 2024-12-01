@@ -75,7 +75,7 @@ const Page = () => {
         />
         <View style={[defaultStyles.content, styles.infoContainer]}>
           <View style={styles.name}>
-            <Text variant="headlineLarge">Saw a dog near grocery shop!</Text>
+            <Text variant="headlineLarge">Lost dog near grocery shop!</Text>
           </View>
           <View style={styles.location}>
             <Icon source="google-maps" size={20} />
